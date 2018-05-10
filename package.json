@@ -1,0 +1,20 @@
+{
+  "name": "travis-lighthouse-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/darthmaim/travis-lighthouse-test.git",
+  "author": "darthmaim <git@darthmaim.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "serve -n -l -p 12345 -S public",
+    "test": "yarn run start & yarn run lighthouse && kill %1",
+    "lighthouse": "lighthouse http://localhost:12345/index.html --quiet --chrome-flags=\"--headless\" --output json | yarn run lighthouse-report",
+    "lighthouse-report": "node ./report-status.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^15.4.0",
+    "lighthouse": "^2.9.4",
+    "serve": "^6.5.6"
+  }
+}
