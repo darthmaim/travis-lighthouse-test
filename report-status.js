@@ -22,7 +22,7 @@ function readInput() {
 }
 
 function setStatus(report) {
-    const slug = process.env.TRAVIS_REPO_SLUG,
+    const slug = process.env.TRAVIS_REPO_SLUG;
     const [owner, repo] = slug.split('/');
 
     const params = {
