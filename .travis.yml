@@ -10,4 +10,6 @@ install:
  - yarn
 
 script:
- - yarn run test
+ - yarn run start &
+ - yarn run lighthouse
+ - kill %1
